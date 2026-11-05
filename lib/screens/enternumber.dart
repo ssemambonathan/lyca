@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'otp verifying screen.dart';
 
 class EnterNumberScreen extends StatefulWidget {
   const EnterNumberScreen({super.key});
@@ -27,8 +28,13 @@ class _EnterNumberScreenState extends State<EnterNumberScreen> {
       );
       return;
     }
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Verification code sent to $_selectedCountryCode $phone')),
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => OtpVerifyingScreen(
+          phoneNumber: '$_selectedCountryCode $phone',
+        ),
+      ),
     );
   }
 
