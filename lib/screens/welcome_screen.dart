@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'enternumber.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -203,7 +204,12 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       child: ElevatedButton(
                         onPressed: () {
-                          // Handle Get Started action
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const EnterNumberScreen(),
+                            ),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.transparent,
@@ -231,7 +237,12 @@ class WelcomeScreen extends StatelessWidget {
                   Center(
                     child: GestureDetector(
                       onTap: () {
-                        // Handle login action
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const EnterNumberScreen(),
+                          ),
+                        );
                       },
                       child: const Text(
                         'I already have an account',
