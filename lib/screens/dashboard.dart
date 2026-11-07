@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'bundlesscreen.dart';
 import 'detailed.dart';
 import 'support.dart';
 import 'wallet.dart';
@@ -459,7 +460,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   ),
                                   padding: const EdgeInsets.symmetric(horizontal: 8),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const BundlesScreen(),
+                                    ),
+                                  );
+                                },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: const [
@@ -828,7 +836,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const BundlesScreen(),
+                            ),
+                          );
+                        },
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: const [
