@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'buybundles screen.dart';
 
 class BundlesScreen extends StatefulWidget {
   final VoidCallback? onBack;
@@ -401,7 +402,18 @@ class _BundlesScreenState extends State<BundlesScreen> {
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(16),
         child: InkWell(
-          onTap: () => _showBundlePurchaseModal(item),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => BuyBundlesScreen(
+                  bundleTitle: item.title,
+                  validity: item.validity,
+                  price: item.price,
+                ),
+              ),
+            );
+          },
           borderRadius: BorderRadius.circular(16),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
