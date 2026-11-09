@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'detailed.dart';
 import 'support.dart';
 import 'wallet.dart';
+import 'paymentprocessingscreen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -459,7 +460,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   ),
                                   padding: const EdgeInsets.symmetric(horizontal: 8),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const PaymentProcessingScreen(),
+                                    ),
+                                  );
+                                },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: const [

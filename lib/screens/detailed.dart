@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'support.dart';
 import 'wallet.dart';
+import 'paymentprocessingscreen.dart';
 
 class DetailedScreen extends StatefulWidget {
   final VoidCallback? onBackToHome;
@@ -1036,7 +1037,14 @@ class _DetailedScreenState extends State<DetailedScreen> {
                   ),
                   padding: const EdgeInsets.symmetric(vertical: 14),
                 ),
-                onPressed: () => Navigator.pop(context),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PaymentProcessingScreen(),
+                    ),
+                  );
+                },
                 child: const Text('Buy New Bundle',
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold)),
