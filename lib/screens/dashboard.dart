@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'bundlesscreen.dart';
 import 'detailed.dart';
 import 'support.dart';
 import 'wallet.dart';
+import 'paymentprocessingscreen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -464,7 +464,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const BundlesScreen(),
+                                      builder: (context) => const PaymentProcessingScreen(),
                                     ),
                                   );
                                 },
@@ -836,14 +836,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const BundlesScreen(),
-                            ),
-                          );
-                        },
+                        onPressed: () {},
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: const [
