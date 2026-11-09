@@ -1,17 +1,7 @@
-# lyca
+Lyca Mobile is a modern mobile telecommunications self-service application designed to give Lyca Mobile subscribers an easy, convenient and secure way to manage their mobile accounts directly from their smartphones.
 
-A new Flutter project.
+The app allows users to check airtime and data balances, purchase data and voice bundles, recharge airtime, monitor usage, manage SIM services, make payments, access international calling services, view promotions, track transactions and contact customer support.
 
-## Getting Started
+It features a clean, modern interface inspired by the Airtel mobile app, with an intuitive dashboard, quick actions, interactive cards and simple bottom navigation.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The main goal: To bring all essential Lyca Mobile services together in one application, giving customers greater control over their accounts without having to visit a physical service centre or rely on USSD codes.
