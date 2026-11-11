@@ -149,7 +149,7 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
                       width: 64,
                       height: 64,
                       decoration: BoxDecoration(
-                        color: const Color(0xFF00C88C).withValues(alpha: 0.15),
+                        color: const Color(0xFF00C88C).withOpacity(0.15),
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
@@ -283,7 +283,7 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
           backgroundColor: Colors.white,
           foregroundColor: const Color(0xFF081C42),
           elevation: 0,
-          shadowColor: Colors.black.withValues(alpha: 0.05),
+          shadowColor: Colors.black.withOpacity(0.05),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(36),
             side: const BorderSide(color: Color(0xFFE2E8F0), width: 1),
