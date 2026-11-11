@@ -292,7 +292,7 @@ class _EnterNumberScreenState extends State<EnterNumberScreen> {
                     borderRadius: BorderRadius.circular(28),
                     boxShadow: [
                       BoxShadow(
-                        color: const Color(0xFF00E676).withOpacity(0.35),
+                        color: const Color(0xFF00E676).withValues(alpha: 0.35),
                         blurRadius: 16,
                         offset: const Offset(0, 6),
                       ),

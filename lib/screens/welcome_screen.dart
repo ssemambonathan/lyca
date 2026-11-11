@@ -44,9 +44,9 @@ class WelcomeScreen extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Colors.black.withOpacity(0.25),
-                    Colors.black.withOpacity(0.55),
-                    Colors.black.withOpacity(0.85),
+                    Colors.black.withValues(alpha: 0.25),
+                    Colors.black.withValues(alpha: 0.55),
+                    Colors.black.withValues(alpha: 0.85),
                   ],
                 ),
               ),
@@ -79,7 +79,7 @@ class WelcomeScreen extends StatelessWidget {
                   colors: [
                     Colors.transparent,
                     Colors.transparent,
-                    const Color(0xFF060F18).withOpacity(0.7),
+                    const Color(0xFF060F18).withValues(alpha: 0.7),
                     const Color(0xFF060F18),
                   ],
                 ),
@@ -196,7 +196,7 @@ class WelcomeScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(28),
                         boxShadow: [
                           BoxShadow(
-                            color: const Color(0xFF00E676).withOpacity(0.4),
+                            color: const Color(0xFF00E676).withValues(alpha: 0.4),
                             blurRadius: 16,
                             offset: const Offset(0, 6),
                           ),
@@ -273,7 +273,7 @@ class WelcomeScreen extends StatelessWidget {
           width: 36,
           height: 36,
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.15),
+            color: Colors.white.withValues(alpha: 0.15),
             shape: BoxShape.circle,
           ),
           child: Icon(
