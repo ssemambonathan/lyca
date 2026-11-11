@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dashboard.dart';
+import 'pin_setup_screen.dart';
 import 'enternumber.dart';
 
 class OtpVerifyingScreen extends StatefulWidget {
@@ -36,7 +36,9 @@ class _OtpVerifyingScreenState extends State<OtpVerifyingScreen> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const DashboardScreen(),
+                      builder: (context) => PinSetupScreen(
+                        phoneNumber: widget.phoneNumber,
+                      ),
                     ),
                   );
                 }

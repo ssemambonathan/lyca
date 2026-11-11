@@ -3,6 +3,8 @@ import 'detailed.dart';
 import 'support.dart';
 import 'wallet.dart';
 import 'paymentprocessingscreen.dart';
+import 'bundlesscreen.dart';
+import 'airtime transfer screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -464,7 +466,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const PaymentProcessingScreen(),
+                                      builder: (context) => const BundlesScreen(),
                                     ),
                                   );
                                 },
@@ -503,7 +505,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   ),
                                   padding: const EdgeInsets.symmetric(horizontal: 8),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const AirtimeTransferScreen(),
+                                    ),
+                                  );
+                                },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: const [
@@ -643,41 +652,93 @@ class _DashboardScreenState extends State<DashboardScreen> {
               icon: Icons.phonelink_ring_rounded,
               label: 'Send Airtime',
               color: const Color(0xFF00B286),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AirtimeTransferScreen(),
+                  ),
+                );
+              },
             ),
             _buildQuickActionTile(
               icon: Icons.language_rounded,
               label: 'Buy Bundles',
               color: const Color(0xFF007AFF),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BundlesScreen(),
+                  ),
+                );
+              },
             ),
             _buildQuickActionTile(
               icon: Icons.storefront_rounded,
               label: 'Pay Merchant',
               color: const Color(0xFF6C5CE7),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PaymentProcessingScreen(),
+                  ),
+                );
+              },
             ),
             _buildQuickActionTile(
               icon: Icons.account_balance_wallet_rounded,
               label: 'Withdraw Cash',
               color: const Color(0xFFFF9500),
+              onTap: () {
+                setState(() {
+                  _selectedNavIndex = 1; // Wallet tab
+                });
+              },
             ),
             _buildQuickActionTile(
               icon: Icons.flight_takeoff_rounded,
               label: 'International',
               color: const Color(0xFF00C7FF),
+              onTap: () {
+                setState(() {
+                  _selectedNavIndex = 3; // More tab
+                });
+              },
             ),
             _buildQuickActionTile(
               icon: Icons.local_offer_rounded,
               label: 'Offers',
               color: const Color(0xFFFF3B30),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BundlesScreen(),
+                  ),
+                );
+              },
             ),
             _buildQuickActionTile(
               icon: Icons.bar_chart_rounded,
               label: 'Usage',
               color: const Color(0xFF00A896),
+              onTap: () {
+                setState(() {
+                  _selectedNavIndex = 3; // More tab
+                });
+              },
             ),
             _buildQuickActionTile(
               icon: Icons.grid_view_rounded,
               label: 'More',
               color: const Color(0xFF5A6E85),
+              onTap: () {
+                setState(() {
+                  _selectedNavIndex = 3; // More tab
+                });
+              },
             ),
           ],
         ),
@@ -689,51 +750,56 @@ class _DashboardScreenState extends State<DashboardScreen> {
     required IconData icon,
     required String label,
     required Color color,
+    VoidCallback? onTap,
   }) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: const Color(0xFFEBF0F5),
-          width: 1,
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: const Color(0xFFEBF0F5),
+            width: 1,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.02),
+              blurRadius: 6,
+              offset: const Offset(0, 2),
+            ),
+          ],
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
-            blurRadius: 6,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: color.withValues(alpha: 0.08),
-              borderRadius: BorderRadius.circular(10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: color.withValues(alpha: 0.08),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Icon(
+                icon,
+                size: 22,
+                color: color,
+              ),
             ),
-            child: Icon(
-              icon,
-              size: 22,
-              color: color,
+            const SizedBox(height: 6),
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 10,
+                fontWeight: FontWeight.w600,
+                color: Color(0xFF081C42),
+              ),
+              textAlign: TextAlign.center,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
-          ),
-          const SizedBox(height: 6),
-          Text(
-            label,
-            style: const TextStyle(
-              fontSize: 10,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF081C42),
-            ),
-            textAlign: TextAlign.center,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -836,7 +902,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const BundlesScreen(),
+                            ),
+                          );
+                        },
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: const [
