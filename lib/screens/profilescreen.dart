@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'editprofilescreen.dart';
 import 'support.dart';
 import 'wallet.dart';
 
@@ -253,29 +254,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
           left: 0,
           right: 0,
           child: Center(
-            child: Container(
-              width: 108,
-              height: 108,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: const Color(0xFFE2EDFF), // Soft Halo Glow Border
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.08),
-                    blurRadius: 16,
-                    offset: const Offset(0, 6),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const EditProfileScreen(),
                   ),
-                ],
-              ),
-              padding: const EdgeInsets.all(4),
+                );
+              },
               child: Container(
-                decoration: const BoxDecoration(
+                width: 108,
+                height: 108,
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Color(0xFFD6E4FF), // Inner Soft Lavender/Blue Circle
+                  color: const Color(0xFFE2EDFF), // Soft Halo Glow Border
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.08),
+                      blurRadius: 16,
+                      offset: const Offset(0, 6),
+                    ),
+                  ],
                 ),
-                child: ClipOval(
-                  child: CustomPaint(
-                    painter: AvatarSilhouettePainter(),
+                padding: const EdgeInsets.all(4),
+                child: Container(
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color(0xFFD6E4FF), // Inner Soft Lavender/Blue Circle
+                  ),
+                  child: ClipOval(
+                    child: CustomPaint(
+                      painter: AvatarSilhouettePainter(),
+                    ),
                   ),
                 ),
               ),
@@ -553,12 +564,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
           onTap: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text('${item.title} tapped'),
-                duration: const Duration(seconds: 1),
-              ),
-            );
+            if (item.title == 'My Information') {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const EditProfileScreen(),
+                ),
+              );
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('${item.title} tapped'),
+                  duration: const Duration(seconds: 1),
+                ),
+              );
+            }
           },
           borderRadius: BorderRadius.circular(12),
           child: Padding(
