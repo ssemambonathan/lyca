@@ -5,6 +5,7 @@ import 'wallet.dart';
 import 'paymentprocessingscreen.dart';
 import 'bundlesscreen.dart';
 import 'airtime transfer screen.dart';
+import 'profilescreen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -44,7 +45,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     }
 
     if (_selectedNavIndex == 3) {
-      return DetailedScreen(
+      return ProfileScreen(
         onBackToHome: () {
           setState(() {
             _selectedNavIndex = 0;
@@ -209,24 +210,32 @@ class _DashboardScreenState extends State<DashboardScreen> {
             const SizedBox(width: 12),
 
             // Profile Button
-            Container(
-              width: 42,
-              height: 42,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.04),
-                    blurRadius: 10,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
-              ),
-              child: const Icon(
-                Icons.person_outline_rounded,
-                color: Color(0xFF081C42),
-                size: 22,
+            InkWell(
+              onTap: () {
+                setState(() {
+                  _selectedNavIndex = 3;
+                });
+              },
+              borderRadius: BorderRadius.circular(21),
+              child: Container(
+                width: 42,
+                height: 42,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.04),
+                      blurRadius: 10,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: const Icon(
+                  Icons.person_outline_rounded,
+                  color: Color(0xFF081C42),
+                  size: 22,
+                ),
               ),
             ),
           ],
