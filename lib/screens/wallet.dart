@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'detailed.dart';
 import 'support.dart';
+import 'profilescreen.dart';
 
 class WalletScreen extends StatefulWidget {
   final VoidCallback? onBackToHome;
@@ -40,7 +41,7 @@ class _WalletScreenState extends State<WalletScreen> {
     }
 
     if (_selectedNavIndex == 3) {
-      return DetailedScreen(
+      return ProfileScreen(
         onBackToHome: () {
           if (widget.onBackToHome != null) {
             widget.onBackToHome!();
@@ -61,6 +62,7 @@ class _WalletScreenState extends State<WalletScreen> {
         },
       );
     }
+
     return Scaffold(
       backgroundColor: const Color(0xFFF4F6F9),
       body: SafeArea(
