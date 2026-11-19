@@ -6,6 +6,7 @@ import 'paymentprocessingscreen.dart';
 import 'bundlesscreen.dart';
 import 'airtime transfer screen.dart';
 import 'profilescreen.dart';
+import 'data usage screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -416,6 +417,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 label: 'Data',
                                 value: '8.4 GB',
                                 subtext: 'Expires 28 Oct 2025',
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const DataUsageScreen(),
+                                    ),
+                                  );
+                                },
                               ),
                             ),
                             VerticalDivider(
@@ -557,9 +566,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
     required String label,
     required String value,
     required String subtext,
+    VoidCallback? onTap,
   }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           children: [
@@ -602,6 +615,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
         ),
       ],
+    ),
     );
   }
 
@@ -734,9 +748,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
               label: 'Usage',
               color: const Color(0xFF00A896),
               onTap: () {
-                setState(() {
-                  _selectedNavIndex = 3; // More tab
-                });
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DataUsageScreen(
+                      onBackToHome: () => Navigator.pop(context),
+                      onSelectTab: (index) {
+                        Navigator.pop(context);
+                        setState(() {
+                          _selectedNavIndex = index;
+                        });
+                      },
+                    ),
+                  ),
+                );
               },
             ),
             _buildQuickActionTile(

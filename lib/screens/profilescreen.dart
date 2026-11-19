@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'editprofilescreen.dart';
+import 'sim managment screen.dart';
 import 'support.dart';
 import 'wallet.dart';
 
@@ -569,6 +570,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => const EditProfileScreen(),
+                ),
+              );
+            } else if (item.title == 'SIM Management') {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SimManagementScreen(),
                 ),
               );
             } else {
