@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'buybundles screen.dart';
+import 'offers_screen.dart';
 
 class BundlesScreen extends StatefulWidget {
   final VoidCallback? onBack;
@@ -565,11 +566,10 @@ class _BundlesScreenState extends State<BundlesScreen> {
                 // "View Offers" Button
                 ElevatedButton(
                   onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Fetching special custom offers...'),
-                        backgroundColor: Color(0xFF00A878),
-                        duration: Duration(seconds: 2),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const OffersScreen(),
                       ),
                     );
                   },

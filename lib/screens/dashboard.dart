@@ -7,6 +7,7 @@ import 'bundlesscreen.dart';
 import 'airtime transfer screen.dart';
 import 'profilescreen.dart';
 import 'data usage screen.dart';
+import 'offers_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -738,7 +739,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const BundlesScreen(),
+                    builder: (context) => OffersScreen(
+                      onBackToHome: () => Navigator.pop(context),
+                      onSelectTab: (index) {
+                        Navigator.pop(context);
+                        setState(() {
+                          _selectedNavIndex = index;
+                        });
+                      },
+                    ),
                   ),
                 );
               },
