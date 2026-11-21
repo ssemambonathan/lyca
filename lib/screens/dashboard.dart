@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'detailed.dart';
 import 'support.dart';
 import 'wallet.dart';
 import 'paymentprocessingscreen.dart';
@@ -7,6 +6,8 @@ import 'bundlesscreen.dart';
 import 'airtime transfer screen.dart';
 import 'profilescreen.dart';
 import 'data usage screen.dart';
+import 'offers_screen.dart';
+import 'internation calling screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -725,9 +726,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
               label: 'International',
               color: const Color(0xFF00C7FF),
               onTap: () {
-                setState(() {
-                  _selectedNavIndex = 3; // More tab
-                });
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => InternationalCallingScreen(
+                      onBack: () => Navigator.pop(context),
+                      onSelectTab: (index) {
+                        Navigator.pop(context);
+                        setState(() {
+                          _selectedNavIndex = index;
+                        });
+                      },
+                    ),
+                  ),
+                );
               },
             ),
             _buildQuickActionTile(
@@ -738,7 +750,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const BundlesScreen(),
+                    builder: (context) => OffersScreen(
+                      onBackToHome: () => Navigator.pop(context),
+                      onSelectTab: (index) {
+                        Navigator.pop(context);
+                        setState(() {
+                          _selectedNavIndex = index;
+                        });
+                      },
+                    ),
                   ),
                 );
               },
