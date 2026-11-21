@@ -3,6 +3,7 @@ import 'editprofilescreen.dart';
 import 'sim managment screen.dart';
 import 'support.dart';
 import 'wallet.dart';
+import 'notification screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   final VoidCallback? onBackToHome;
@@ -577,6 +578,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => const SimManagementScreen(),
+                ),
+              );
+            } else if (item.title == 'Notifications') {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => NotificationScreen(
+                    onBackToHome: widget.onBackToHome,
+                    onSelectTab: widget.onSelectTab,
+                  ),
                 ),
               );
             } else {

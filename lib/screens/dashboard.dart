@@ -8,6 +8,7 @@ import 'profilescreen.dart';
 import 'data usage screen.dart';
 import 'offers_screen.dart';
 import 'internation calling screen.dart';
+import 'notification screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -172,41 +173,63 @@ class _DashboardScreenState extends State<DashboardScreen> {
         Row(
           children: [
             // Bell Button with Notification Dot
-            Container(
-              width: 42,
-              height: 42,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.04),
-                    blurRadius: 10,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
-              ),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  const Icon(
-                    Icons.notifications_outlined,
-                    color: Color(0xFF081C42),
-                    size: 22,
-                  ),
-                  Positioned(
-                    top: 10,
-                    right: 11,
-                    child: Container(
-                      width: 8,
-                      height: 8,
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFFF3B30),
-                        shape: BoxShape.circle,
-                      ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NotificationScreen(
+                      onBackToHome: () {
+                        setState(() {
+                          _selectedNavIndex = 0;
+                        });
+                      },
+                      onSelectTab: (index) {
+                        setState(() {
+                          _selectedNavIndex = index;
+                        });
+                      },
                     ),
                   ),
-                ],
+                );
+              },
+              borderRadius: BorderRadius.circular(21),
+              child: Container(
+                width: 42,
+                height: 42,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.04),
+                      blurRadius: 10,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    const Icon(
+                      Icons.notifications_outlined,
+                      color: Color(0xFF081C42),
+                      size: 22,
+                    ),
+                    Positioned(
+                      top: 10,
+                      right: 11,
+                      child: Container(
+                        width: 8,
+                        height: 8,
+                        decoration: const BoxDecoration(
+                          color: Color(0xFFFF3B30),
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(width: 12),
