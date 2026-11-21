@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'support.dart';
 import 'wallet.dart';
 import 'paymentprocessingscreen.dart';
+import 'internation calling screen.dart';
 
 class DetailedScreen extends StatefulWidget {
   final VoidCallback? onBackToHome;
@@ -443,7 +444,17 @@ class _DetailedScreenState extends State<DetailedScreen> {
         _buildListTile(
           icon: Icons.phone_outlined,
           title: 'International Calling',
-          onTap: () => _showServiceDetail('International Calling'),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => InternationalCallingScreen(
+                  onBack: () => Navigator.pop(context),
+                  onSelectTab: widget.onSelectTab,
+                ),
+              ),
+            );
+          },
         ),
         _buildDivider(),
         _buildListTile(
