@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'detailed.dart';
 import 'support.dart';
 import 'profilescreen.dart';
+import 'transactions screen.dart';
 
 class WalletScreen extends StatefulWidget {
   final VoidCallback? onBackToHome;
@@ -498,7 +498,14 @@ class _WalletScreenState extends State<WalletScreen> {
           ),
         ),
         InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const TransactionsScreen(),
+              ),
+            );
+          },
           borderRadius: BorderRadius.circular(4),
           child: Row(
             children: const [
