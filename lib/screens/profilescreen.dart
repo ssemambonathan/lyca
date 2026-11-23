@@ -4,6 +4,7 @@ import 'sim managment screen.dart';
 import 'support.dart';
 import 'wallet.dart';
 import 'notification screen.dart';
+import 'settings screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   final VoidCallback? onBackToHome;
@@ -231,10 +232,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               // Settings Gear Button
               IconButton(
                 onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Settings tapped'),
-                      duration: Duration(seconds: 1),
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SettingsScreen(),
                     ),
                   );
                 },
