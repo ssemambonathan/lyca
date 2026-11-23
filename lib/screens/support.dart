@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'complaint screen.dart';
 
 class SupportScreen extends StatefulWidget {
   final VoidCallback? onBackToHome;
@@ -356,10 +357,18 @@ class _SupportScreenState extends State<SupportScreen> {
                 iconColor: const Color(0xFF0066CC),
                 title: 'FAQs',
                 description: 'Find answers to common questions',
-                onTap: () => _showSupportModal(
-                  'FAQs',
-                  'Browsing Lyca Mobile Frequently Asked Questions...',
-                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ComplaintScreen(
+                        initialTabIndex: 0,
+                        onBackToHome: widget.onBackToHome,
+                        onSelectTab: widget.onSelectTab,
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
             const SizedBox(width: 12),
@@ -370,10 +379,18 @@ class _SupportScreenState extends State<SupportScreen> {
                 iconColor: const Color(0xFFE53935),
                 title: 'Report a Problem',
                 description: 'Let us know about an issue',
-                onTap: () => _showSupportModal(
-                  'Report a Problem',
-                  'Please describe the technical or service issue...',
-                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ComplaintScreen(
+                        initialTabIndex: 1,
+                        onBackToHome: widget.onBackToHome,
+                        onSelectTab: widget.onSelectTab,
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
           ],
