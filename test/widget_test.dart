@@ -1,6 +1,6 @@
 import 'package:lyca/app/app.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lyca/main.dart';
+
 
 void main() {
   testWidgets('Splash screen displays brand title and tagline', (WidgetTester tester) async {
